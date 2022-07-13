@@ -10,11 +10,8 @@ function getToken() {
 }
 
 const instance = axios.create({
-  // baseURL: `http://ultrashinenewadmin.geeklone.com:4001/api`,
-  baseURL: `http://localhost:4000/api`,
-  // baseURL: `http://192.168.10.54:4001/api`,
-  // baseURL: `http://ultrashinecarepair.geeklone.com:4001/api`,
-  // baseURL: `https://ultrashineautosalon.com:4001/api`,
+  baseURL: `https://mlintbe.herokuapp.com/api`,
+  // baseURL: `http://localhost:4000/api`,
   headers: {
     "Content-Type": "application/json",
     "cache-control": "no-cache",
