@@ -56,6 +56,7 @@ const Index = () => {
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
   const { id } = useParams();
 
+
   const getAllFiles = async (id) => {
     FolderAPI.getFiles(id).then((res) => {
       console.log(res?.data?.data);
