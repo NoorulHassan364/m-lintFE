@@ -10,7 +10,8 @@ function getToken() {
 }
 
 const instance = axios.create({
-  baseURL: `https://mlintbe.herokuapp.com/api`,
+  baseURL: `http://34.229.80.254:4000/api`,
+  // baseURL: `https://mlintbe.herokuapp.com/api`,
   // baseURL: `http://localhost:4000/api`,
   headers: {
     "Content-Type": "application/json",
