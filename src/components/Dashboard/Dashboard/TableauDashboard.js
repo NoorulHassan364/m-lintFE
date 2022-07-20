@@ -12,9 +12,11 @@ import TableauReport from "tableau-react";
 import { useLocation } from "react-router-dom";
 import { DashboardAPI } from "../../../api";
 import JWT from "simple-jwt";
+import { boolean } from "yup/lib/locale";
 const TableauDashboard = () => {
   // const [timeOut, setTimeOut] = React.useState(false);
   const [token, setToken] = React.useState();
+  const [bool, setBool] = React.useState();
   // const [expireTime, setExpireTime] = React.useState();
   const { state } = useLocation();
   // const token = state.token;
@@ -34,6 +36,8 @@ const TableauDashboard = () => {
       console.log(res?.data?.token, "token");
       setToken(res?.data?.token);
     });
+    const val = state?.link.includes("public.tableau");
+    setBool(val);
   }, []);
 
   // React.useEffect(() => {
@@ -43,13 +47,18 @@ const TableauDashboard = () => {
   //   setExpireTime(decode?.payload?.exp);
   //   compareTime();
   // });
+
   return (
     <>
-      <tableau-viz
-        id="tableauViz3"
-        src={state.link}
-        token={token}
-      ></tableau-viz>
+      {bool ? (
+        <tableau-viz id="tableauViz3" src={state.link}></tableau-viz>
+      ) : (
+        <tableau-viz
+          id="tableauViz3"
+          src={state.link}
+          token={token}
+        ></tableau-viz>
+      )}
     </>
   );
 };
